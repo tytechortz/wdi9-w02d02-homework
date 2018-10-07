@@ -120,16 +120,26 @@ const battle1 = () => {
   }
   if(eggBertScore > computerScore) {
     eggBert.roundsWon ++;
+    $('#round1-won').append('Eggbert won round 1');
     $('#eggBert-roundsWon').text(eggBert.roundsWon);
+    window.setTimeout(function() {
+      $('#round1-won').remove('');
+    },3000)
   } else if
   (computerScore > eggBertScore) {
     computer.roundsWon ++;
+    $('#round1-won').append('Computer won round 1');
     $('#computer-roundsWon').text(computer.roundsWon);
-  };
-  console.log(eggBert.roundsWon);
-  console.log(computer.roundsWon);
-}
-
+    window.setTimeout(function() {
+      $('#round1-won').remove('');
+    },3000)
+  } else {
+    $('#round1-won').append('Round is a tie');
+    window.setTimeout(function() {
+      $('#round1-won').remove('');
+    },3000)
+  }
+};
 
 const battle2 = () => {
   let eggBertScore = 0;
@@ -140,63 +150,84 @@ const battle2 = () => {
     } else if (
       computer.cardsDealt[i].damage > eggBert.cardsDealt[i].damage) {
       computerScore ++;
-    }
+    } 
   }
   if(eggBertScore > computerScore) {
     eggBert.roundsWon ++;
+    $('#round2-won').append('Eggbert won round 2');
     $('#eggBert-roundsWon').text(eggBert.roundsWon);
+    window.setTimeout(function() {
+      $('#round2-won').remove('');
+    },3000)
   } else if
   (computerScore > eggBertScore) {
     computer.roundsWon ++;
+    $('#round2-won').append('Computer won round 2');
     $('#computer-roundsWon').text(computer.roundsWon);
-  }; 
-  console.log(eggBert.roundsWon);
-  console.log(computer.roundsWon);  
+    window.setTimeout(function() {
+      $('#round2-won').remove('');
+    },3000)
+  } else {
+    $('#round2-won').append('Round is a tie');
+    window.setTimeout(function() {
+      $('#round2-won').remove('');
+    },3000)
+  }
 };
 
 const battle3 = () => {
   let eggBertScore = 0;
   let computerScore = 0;
-  for(let i = 6; i < 9; i++) {
-  
+  for(let i = 3; i < 6; i++) {
     if(eggBert.cardsDealt[i].damage > computer.cardsDealt[i].damage) {
       eggBertScore ++;
     } else if (
       computer.cardsDealt[i].damage > eggBert.cardsDealt[i].damage) {
       computerScore ++;
-    }
+    } 
   }
   if(eggBertScore > computerScore) {
     eggBert.roundsWon ++;
+    $('#round3-won').append('Eggbert won round 2');
     $('#eggBert-roundsWon').text(eggBert.roundsWon);
+    window.setTimeout(function() {
+      $('#round3-won').remove('');
+    },3000)
   } else if
   (computerScore > eggBertScore) {
     computer.roundsWon ++;
+    $('#round3-won').append('Computer won round 2');
     $('#computer-roundsWon').text(computer.roundsWon);
+    window.setTimeout(function() {
+      $('#round3-won').remove('');
+    },3000)
+  } else {
+    $('#round3-won').append('Round is a tie');
+    window.setTimeout(function() {
+      $('#round3-won').remove('');
+    },3000)
   }
-  console.log(eggBert.roundsWon);
-  console.log(computer.roundsWon);
 };
 
 $("#rnd1").click(function() {
   battle1();
   for(let i = 0; i < 3; i++) {
-    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[3].damage}</li>`);
+    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[i].damage}</li>`);
   }
-})
+});
 
 $("#rnd2").click(function() {
   battle2();
   for(let i = 3; i < 6; i++) {
-    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[3].damage}</li>`);
+    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[i].damage}</li>`);
   }
-}) 
+}); 
 
 $("#rnd3").click(function() {
   battle3();
   for(let i = 6; i < 9; i++) {
-    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[3].damage}</li>`);
+    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[i].damage}</li>`);
   }
-})
+});
 
 
