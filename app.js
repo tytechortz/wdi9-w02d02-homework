@@ -57,52 +57,35 @@ const cards =
    }
 ];
 
-const eggBert = {
+let eggBert = {
    name: 'Eggbert',
    cardsDealt: [],
-   cardsPlayed: [],
+   cardsPlayed: 0,
 };
 
-const computer = {
+let computer = {
   name: 'Computer',
   cardsDealt: [],
-  carsPlayed: [],
-
+  carsPlayed: 0,
 };
 
-const scoreBoard = {
-   roundsPlayed: 0,
-   eggBertRoundsWon: 0,
-   computerRoundsWon: 0,
-};
+
 
 let firstSixCards = [];
-
+//Gets first 6 cards in play
 function deal() {
 for (let i = 0; i<6; i++){
-firstSixCards[i] = cards.splice(Math.floor(Math.random()* cards.length), 1);
+firstSixCards[i] = cards.splice(Math.floor(Math.random()* cards.length), 1,)[0];
   }
 }
 
-//Gets first 6 cards in play
 deal();
-//console.log(firstSixCards);
+console.log(firstSixCards);
 
-// Divide first 6 cards to each player, 3 each
-eggBert.cardsDealt = firstSixCards.slice(0, 3);
-console.log(eggBert.cardsDealt);
-computer.cardsDealt = firstSixCards.slice(3, 6);
-console.log(computer.cardsDealt);
 
-//game play
-console.log(eggBert.cardsDealt[1][0].damage);
+// // Divide first 6 cards to each player, 3 each
+// eggBert.cardsDealt = firstSixCards.slice(0, 3);
+// computer.cardsDealt = firstSixCards.slice(3, 6);
 
-let eggBertPoints = 0;
-let computerPoints = 0;
-
-for(let i = 0; i < 3; i++) {
-  if(eggBert.cardsDealt[i][0].damage > computer.cardsDealt[i][0].damage) {
-    eggBertPoints ++;
-    console.log(eggBertPoints);
-  }
-}
+// //game play
+// function play() 
