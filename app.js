@@ -209,21 +209,24 @@ const battle3 = () => {
   }
 };
 
-$("#rnd1").click(function() {
+$(".rnd1").click(function() {
+  $( ".rnd1" ).remove();
   battle1();
   for(let i = 0; i < 3; i++) {
     $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[i].damage}</li>`);
   }
 });
 
-$("#rnd2").click(function() {
+$(".rnd2").click(function() {
+  $( ".rnd2" ).remove();
   battle2();
   for(let i = 3; i < 6; i++) {
     $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[i].damage}</li>`);
   }
 }); 
 
-$("#rnd3").click(function() {
+$(".rnd3").click(function() {
+  $( ".rnd3" ).remove();
   battle3();
   for(let i = 6; i < 9; i++) {
     $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[i].damage}</li>`);
