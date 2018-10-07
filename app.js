@@ -70,17 +70,31 @@ let computer = {
 };
 
 
+//Fisher-Yates shuffle
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-let firstSixCards = [];
-//Gets first 6 cards in play
-function deal() {
-for (let i = 0; i<6; i++){
-firstSixCards[i] = cards.splice(Math.floor(Math.random()* cards.length), 1,)[0];
+  while (0 !== currentIndex) {
+
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
   }
+  return array;
 }
 
-deal();
-console.log(firstSixCards);
+$(".btn-primary").click(function() {
+  cardsShuffled = shuffle(cards);
+  console.log(cards);
+  $("#game-on").append("Cards Dealt");
+  $(".btn-primary").hide();
+});
+
+
+
 
 
 // // Divide first 6 cards to each player, 3 each
