@@ -61,12 +61,14 @@ let eggBert = {
    name: 'Eggbert',
    cardsDealt: [],
    cardsPlayed: 0,
+   score: 0,
 };
 
 let computer = {
   name: 'Computer',
   cardsDealt: [],
   carsPlayed: 0,
+  score: 0,
 };
 
 
@@ -86,13 +88,44 @@ function shuffle(array) {
   return array;
 }
 
-$(".btn-primary").click(function() {
+let cardsShuffled = [];
+
+$("#start").click(function() {
   cardsShuffled = shuffle(cards);
-  console.log(cards);
   $("#game-on").append("Cards Dealt");
-  $(".btn-primary").hide();
+  $("#start").hide();
+  
+
+      const divideCards = () => {
+        eggBert.cardsDealt = cardsShuffled.slice(0, 9);
+        computer.cardsDealt = cardsShuffled.slice(9, 18);
+        console.log(eggBert.cardsDealt);
+        console.log(computer.cardsDealt);
+      }
+      divideCards();
 });
 
+
+const battle1 = () => {
+  for(let i = 0; i < 3; i++) {
+    if(eggBert.cardsDealt[i].damage > computer.cardsDealt[i].damage) {
+      eggBert.score ++;
+    } else if (
+      computer.cardsDealt[i].damage > eggBert.cardsDealt[i].damage) {
+      computer.score ++;
+    }
+  }
+};
+
+
+$("#test").click(function() {
+  battle1();
+  $("#battle").append(`<li>${eggBert.cardsDealt[0].name}-${eggBert.cardsDealt[0].damage} vs ${computer.cardsDealt[0].name} ${computer.cardsDealt[0].damage}</li>`);
+  $("#battle").append(`<li>${eggBert.cardsDealt[1].name}-${eggBert.cardsDealt[1].damage} vs ${computer.cardsDealt[1].name} ${computer.cardsDealt[1].damage}</li>`);
+  $("#battle").append(`<li>${eggBert.cardsDealt[2].name}-${eggBert.cardsDealt[2].damage} vs ${computer.cardsDealt[2].name} ${computer.cardsDealt[2].damage}</li>`);
+  console.log(eggBert.score);
+  console.log(computer.score);
+})
 
 
 
