@@ -178,29 +178,25 @@ const battle3 = () => {
   console.log(computer.roundsWon);
 };
 
-
 $("#rnd1").click(function() {
   battle1();
-  $("#battle").append(`<li>${eggBert.cardsDealt[0].name}-${eggBert.cardsDealt[0].damage} vs ${computer.cardsDealt[0].name} ${computer.cardsDealt[0].damage}</li>`);
-  $("#battle").append(`<li>${eggBert.cardsDealt[1].name}-${eggBert.cardsDealt[1].damage} vs ${computer.cardsDealt[1].name} ${computer.cardsDealt[1].damage}</li>`);
-  $("#battle").append(`<li>${eggBert.cardsDealt[2].name}-${eggBert.cardsDealt[2].damage} vs ${computer.cardsDealt[2].name} ${computer.cardsDealt[2].damage}</li>`);
- 
+  for(let i = 0; i < 3; i++) {
+    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[3].damage}</li>`);
+  }
 })
 
 $("#rnd2").click(function() {
   battle2();
-  $("#battle").append(`<li>${eggBert.cardsDealt[3].name}-${eggBert.cardsDealt[3].damage} vs ${computer.cardsDealt[3].name} ${computer.cardsDealt[3].damage}</li>`);
-  $("#battle").append(`<li>${eggBert.cardsDealt[4].name}-${eggBert.cardsDealt[4].damage} vs ${computer.cardsDealt[4].name} ${computer.cardsDealt[4].damage}</li>`);
-  $("#battle").append(`<li>${eggBert.cardsDealt[5].name}-${eggBert.cardsDealt[5].damage} vs ${computer.cardsDealt[5].name} ${computer.cardsDealt[5].damage}</li>`);
- 
-})
+  for(let i = 3; i < 6; i++) {
+    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[3].damage}</li>`);
+  }
+}) 
 
 $("#rnd3").click(function() {
   battle3();
-  $("#battle").append(`<li>${eggBert.cardsDealt[6].name}-${eggBert.cardsDealt[6].damage} vs ${computer.cardsDealt[6].name} ${computer.cardsDealt[6].damage}</li>`);
-  $("#battle").append(`<li>${eggBert.cardsDealt[7].name}-${eggBert.cardsDealt[7].damage} vs ${computer.cardsDealt[7].name} ${computer.cardsDealt[7].damage}</li>`);
-  $("#battle").append(`<li>${eggBert.cardsDealt[8].name}-${eggBert.cardsDealt[8].damage} vs ${computer.cardsDealt[8].name} ${computer.cardsDealt[8].damage}</li>`);
-   
+  for(let i = 6; i < 9; i++) {
+    $("#battle").append(`<li>${eggBert.cardsDealt[i].name}-${eggBert.cardsDealt[i].damage} vs ${computer.cardsDealt[i].name} ${computer.cardsDealt[3].damage}</li>`);
+  }
 })
 
 
